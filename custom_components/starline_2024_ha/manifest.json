@@ -6,5 +6,5 @@
   "documentation": "https://www.home-assistant.io/integrations/starline",
   "iot_class": "cloud_polling",
   "loggers": ["starline_2024"],
-  "version": "0.0.1"
+  "version": "0.0.2"
 }
