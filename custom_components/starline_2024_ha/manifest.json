@@ -1,0 +1,10 @@
+{
+  "domain": "starline_ev",
+  "name": "StarLine_EV",
+  "codeowners": ["@Anry777"],
+  "config_flow": true,
+  "documentation": "https://www.home-assistant.io/integrations/starline",
+  "iot_class": "cloud_polling",
+  "loggers": ["starline_ev"],
+  "version": "0.0.1"
+}
