@@ -6,8 +6,8 @@ from homeassistant.const import Platform
 
 _LOGGER = logging.getLogger(__package__)
 
-DOMAIN = "starline_ev"
-CONFIG_ENTRY_TITLE = "Starline EV"
+DOMAIN = "starline_2024"
+CONFIG_ENTRY_TITLE = "Starline 2024"
 PLATFORMS = [
     Platform.BINARY_SENSOR,
     Platform.BUTTON,

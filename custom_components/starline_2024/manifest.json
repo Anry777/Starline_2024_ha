@@ -1,5 +1,5 @@
 {
-  "domain": "starline_2024_ha",
+  "domain": "starline_2024",
   "name": "StarLine_2024",
   "codeowners": ["@Anry777"],
   "config_flow": true,
