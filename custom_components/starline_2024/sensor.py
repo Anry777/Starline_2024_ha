@@ -26,12 +26,12 @@ from .const import DOMAIN
 from .entity import StarlineEntity
 
 SENSOR_TYPES: tuple[SensorEntityDescription, ...] = (
-    # SensorEntityDescription(
-    #     key="battery_percents",
-    #     translation_key="battery_percents",
-    #     native_unit_of_measurement=PERCENTAGE,
-    #     state_class=SensorStateClass.MEASUREMENT,
-    # ),
+    SensorEntityDescription(
+        key="ev_battery_percents",
+        translation_key="ev_battery_percents",
+        native_unit_of_measurement=PERCENTAGE,
+        state_class=SensorStateClass.MEASUREMENT,
+    ),
     SensorEntityDescription(
         key="battery",
         translation_key="battery",
@@ -135,6 +135,8 @@ class StarlineSensor(StarlineEntity, SensorEntity):
     @property
     def native_value(self):
         """Return the state of the sensor."""
+        if self._key == "ev_battery_percents":
+            return self._device.electric.get("battery_percents")
         if self._key == "battery":
             return self._device.battery_level
         if self._key == "balance":
