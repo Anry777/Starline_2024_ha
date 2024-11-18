@@ -1,4 +1,5 @@
 """StarLine device."""
+
 from typing import Optional, Dict, Any, List
 from .const import (
     BATTERY_LEVEL_MIN,
@@ -32,8 +33,6 @@ class StarlineDevice:
         self._car_state: Dict[str, bool] = {}
         self._car_alr_state: Dict[str, bool] = {}
 
-
-
         self._ts_activity: Optional[float] = None
         self._functions: List[str] = []
         self._position: Dict[str, float] = {}
@@ -49,43 +48,50 @@ class StarlineDevice:
         self._fw_version = device_data.get("firmware_version")
         self._status = device_data.get("status")
         self._phone = device_data.get("phone")
-        self._gsm_lvl = device_data.get('common').get("gsm_lvl")
+        self._gsm_lvl = device_data.get("common").get("gsm_lvl")
         self._balance = device_data.get("balance", {})
-        self._battery = device_data.get('common').get('battery')
-        self._ctemp = device_data.get('common').get("ctemp", device_data.get('common').get("mayak_temp"))
-        self._etemp = device_data.get('common').get("etemp")
-        self._fuel = {'val': device_data.get('obd').get("fuel_litres"), 'ts': device_data.get("activity_ts"), 'type': 'liters'}
-        self._mileage = {'val': device_data.get('obd').get("mileage"), 'ts': device_data.get("activity_ts")}
-        self._car_state = device_data.get('state', {})
+        self._battery = str(round(int(device_data.get("common").get("battery"))))
+        self._ctemp = device_data.get("common").get(
+            "ctemp", device_data.get("common").get("mayak_temp")
+        )
+        self._etemp = device_data.get("common").get("etemp")
+        self._fuel = {
+            "val": device_data.get("obd").get("fuel_litres"),
+            "ts": device_data.get("activity_ts"),
+            "type": "liters",
+        }
+        self._mileage = {
+            "val": device_data.get("obd").get("mileage"),
+            "ts": device_data.get("activity_ts"),
+        }
+        self._car_state = device_data.get("state", {})
         self._car_alr_state = device_data.get("alarm_state", {})
-        
         self._ts_activity = device_data.get("activity_ts")
         self._functions = device_data.get("functions", [])
         self._position = device_data.get("position")
         # Косяк в АПИ Старлайна - перепутаны Х и У, удалить, когда поправят
         x = device_data.get("position").get("y")
         y = device_data.get("position").get("x")
-        self._position.update({'x': x, 'y': y})
+        self._position.update({"x": x, "y": y})
         # ================================================================
-        self._electric = device_data.get('electric_status')
+        self._electric = device_data.get("electric_status")
 
     def update_obd(self, obd_info):
         """Update OBD data from server."""
         self._errors = obd_info.get("errors")
-        
 
     def update_car_state(self, car_state):
         """Update car state from server."""
-        for key in car_state:
-            if key in self._car_state:
-                pass
-                # self._car_state[key] = car_state[key] in ["1", "true", True]
+        # for key in car_state:
+        #     if key in self._car_state:
+        #         self._car_state[key] = car_state[key] in ["1", "true", True]
+        return
     
     @property
     def name(self):
         """Device name."""
         return self._alias
-    
+
     @property
     def typename(self):
         """Device type name."""
@@ -95,30 +101,30 @@ class StarlineDevice:
     def device_id(self):
         """Device ID."""
         return self._device_id
-    
+
     @property
     def imei(self):
         """Device IMEI."""
         return self._imei
-    
+
     @property
     def fw_version(self):
         """Firmware version."""
         return self._fw_version
-    
+
     @property
     def online(self):
         """Is device online."""
         return int(self._status) == 1
-    
+
     @property
     def phone(self):
         """Device phone number."""
         for slot in self._balance:
             if slot.get("key") == "active":
-                return slot.get("number")              
+                return slot.get("number")
         return "Can find active slot"
-        
+
     @property
     def gsm_level(self):
         """GSM signal level."""
@@ -146,7 +152,7 @@ class StarlineDevice:
         """Device balance."""
         for slot in self._balance:
             if slot.get("key") == "active":
-                return slot              
+                return slot
         return "Can find active slot"
 
     @property
@@ -168,7 +174,7 @@ class StarlineDevice:
             / (BATTERY_LEVEL_MAX - BATTERY_LEVEL_MIN)
             * 100
         )
-    
+
     @property
     def temp_inner(self):
         """Car inner temperature."""
@@ -183,12 +189,12 @@ class StarlineDevice:
     def fuel(self):
         """Device fuel count."""
         return self._fuel
-    
+
     @property
     def mileage(self):
         """Device mileage count."""
         return self._mileage
-    
+
     @property
     def car_state(self):
         """Car state."""
@@ -214,17 +220,11 @@ class StarlineDevice:
         """Car position."""
         return self._position
 
-    
-
-    
-
     @property
     def errors(self):
         """Device errors info."""
         return self._errors
 
-    
-    
     @property
     def electric(self):
         """Device errors info."""
