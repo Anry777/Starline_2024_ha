@@ -41,7 +41,7 @@
     "entity": {
         "binary_sensor": {
             "alarm": {
-                "name": "Alarm"
+                "name": "Тревога"
             },
             "doors": {
                 "name": "Двери"
@@ -70,17 +70,17 @@
         },
         "button": {
             "horn": {
-                "name": "Horn"
+                "name": "Сигнал"
             }
         },
         "device_tracker": {
             "location": {
-                "name": "Location"
+                "name": "Местоположение"
             }
         },
         "lock": {
             "security": {
-                "name": "Security"
+                "name": "Сигнализация"
             }
         },
         "sensor": {
@@ -91,22 +91,22 @@
                 "name": "Аккумулятор"
             },
             "engine_temperature": {
-                "name": "Engine temperature"
+                "name": "Температура двигателя"
             },
             "errors": {
-                "name": "OBD errors"
+                "name": "OBD ошибки"
             },
             "fuel": {
                 "name": "Топливо"
             },
             "gps_count": {
-                "name": "GPS satellites"
+                "name": "GPS спутники"
             },
             "gsm_signal": {
-                "name": "GSM signal"
+                "name": "GSM сигнал"
             },
             "interior_temperature": {
-                "name": "Interior temperature"
+                "name": "Температура салона"
             },
             "mileage": {
                 "name": "Пробег"
@@ -114,16 +114,16 @@
         },
         "switch": {
             "additional_channel": {
-                "name": "Additional channel"
+                "name": "Дополнительный канал"
             },
             "engine": {
                 "name": "Двигатель"
             },
             "service_mode": {
-                "name": "Service mode"
+                "name": "Сервисный режим"
             },
             "webasto": {
-                "name": "Webasto"
+                "name": "Автономный обогреватель"
             }
         }
     },
