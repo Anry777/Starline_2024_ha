@@ -45,8 +45,6 @@ class StarlineApi(BaseApi):
                     self._devices[device_id] = StarlineDevice()
                 device_data = self.get_device_data(device_id)
                 self._devices[device_id].update(device_data['data'])
-                
-
         self._call_listeners()
 
     def update_obd(self) -> None:
@@ -93,7 +91,7 @@ class StarlineApi(BaseApi):
         if code == 200:
             return response["devices"] + response["shared_devices"]
         return None
-    
+
     def get_device_data(self, device_id: str) -> Optional[List[Dict[str, Any]]]:
         """Get user information."""
         url = "https://developer.starline.ru/json/v3/device/{}/data".format(device_id)
@@ -132,7 +130,8 @@ class StarlineApi(BaseApi):
 
         code = int(response["code"])
         if code == 200:
-            self._devices[device_id].update_car_state(response)
+            # self._devices[device_id].update_car_state(response)
+            self._devices[device_id].update(response)
             self._call_listeners()
             return response
         return None

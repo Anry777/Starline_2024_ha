@@ -1,6 +1,12 @@
 {
   "entity": {
     "binary_sensor": {
+      "doors": {
+        "default": "mdi:car-door",
+        "state": {
+          "on": "mdi:car-door-lock"
+        }
+      },
       "hand_brake": {
         "default": "mdi:car-brake-parking"
       },
@@ -30,6 +36,9 @@
       },
       "fuel": {
         "default": "mdi:fuel"
+      },
+      "battery": {
+        "default": "mdi:car-battery"
       },
       "errors": {
         "default": "mdi:alert-octagon"
