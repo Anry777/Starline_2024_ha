@@ -22,7 +22,7 @@ from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.icon import icon_for_battery_level, icon_for_signal_level
 
 from .account import StarlineAccount, StarlineDevice
-from .const import DOMAIN
+from .const import DOMAIN, _LOGGER
 from .entity import StarlineEntity
 
 SENSOR_TYPES: tuple[SensorEntityDescription, ...] = (
@@ -104,6 +104,8 @@ async def async_setup_entry(
         if (sensor := StarlineSensor(account, device, description)).native_value
         is not None
     ]
+    _LOGGER.debug("Entities array =======================: %ds", entities)
+    # убрать
     async_add_entities(entities)
 
 
