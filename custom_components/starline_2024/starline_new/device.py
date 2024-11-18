@@ -86,7 +86,7 @@ class StarlineDevice:
         #     if key in self._car_state:
         #         self._car_state[key] = car_state[key] in ["1", "true", True]
         return
-    
+
     @property
     def name(self):
         """Device name."""
