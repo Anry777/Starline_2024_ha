@@ -59,10 +59,10 @@
                 "name": "Running"
             },
             "moving_ban": {
-                "name": "Moving ban"
+                "name": "Запрет движения"
             },
             "neutral": {
-                "name": "Programmable neutral"
+                "name": "Программируемая нейтраль"
             },
             "trunk": {
                 "name": "Багажник"
@@ -129,24 +129,24 @@
     },
     "services": {
         "set_scan_interval": {
-            "description": "Sets update frequency.",
+            "description": "Установка частоты обновления.",
             "fields": {
                 "scan_interval": {
-                    "description": "Update frequency.",
-                    "name": "Scan interval"
+                    "description": "Частота обновления.",
+                    "name": "Интервал сканирования"
                 }
             },
-            "name": "Set scan interval"
+            "name": "Установка интервала сканирования"
         },
         "set_scan_obd_interval": {
-            "description": "Sets OBD info update frequency.",
+            "description": "Установка частоты обновления OBD.",
             "fields": {
                 "scan_interval": {
-                    "description": "Update frequency.",
-                    "name": "Scan interval"
+                    "description": "Частота обновления.",
+                    "name": "Интервал сканирования"
                 }
             },
-            "name": "Set scan OBD interval"
+            "name": "Установка интервала сканирования OBD"
         },
         "update_state": {
             "description": "Fetches the last state of the devices from the StarLine server.\n.",
