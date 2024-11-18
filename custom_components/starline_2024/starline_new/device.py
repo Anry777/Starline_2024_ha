@@ -50,7 +50,7 @@ class StarlineDevice:
         self._phone = device_data.get("phone")
         self._gsm_lvl = device_data.get("common").get("gsm_lvl")
         self._balance = device_data.get("balance", {})
-        self._battery = str(round(int(device_data.get("common").get("battery"))))
+        self._battery = str(round(int(device_data.get("common").get("battery")), 2))
         self._ctemp = device_data.get("common").get(
             "ctemp", device_data.get("common").get("mayak_temp")
         )
