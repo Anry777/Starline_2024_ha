@@ -104,8 +104,7 @@ async def async_setup_entry(
         if (sensor := StarlineSensor(account, device, description)).native_value
         is not None
     ]
-    _LOGGER.debug("Entities array =======================: %ds", entities)
-    # убрать
+    
     async_add_entities(entities)
 
 
