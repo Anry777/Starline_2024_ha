@@ -130,9 +130,9 @@ class StarlineApi(BaseApi):
 
         code = int(response["code"])
         if code == 200:
-            # self._devices[device_id].update_car_state(response)
-            device_data = self.get_device_data(device_id)
-            self._devices[device_id].update(device_data['data'])
+            self._devices[device_id].update_car_state(response)
+            # device_data = self.get_device_data(device_id)
+            # self._devices[device_id].update(device_data['data'])
             self._call_listeners()
             return response
         return None

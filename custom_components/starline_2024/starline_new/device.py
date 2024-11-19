@@ -82,9 +82,9 @@ class StarlineDevice:
 
     def update_car_state(self, car_state):
         """Update car state from server."""
-        # for key in car_state:
-        #     if key in self._car_state:
-        #         self._car_state[key] = car_state[key] in ["1", "true", True]
+        for key in car_state:
+            if key in self._car_state:
+                self._car_state[key] = car_state[key] in ["1", "true", True]
         return
 
     @property
