@@ -84,6 +84,9 @@
             }
         },
         "sensor": {
+            "ev_battery_percents": {
+                "name": "EV Battery"
+            },
             "balance": {
                 "name": "Balance"
             },

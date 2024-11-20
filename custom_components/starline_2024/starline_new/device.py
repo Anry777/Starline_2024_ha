@@ -74,7 +74,7 @@ class StarlineDevice:
         y = device_data.get("position").get("x")
         self._position.update({"x": x, "y": y})
         # ================================================================
-        self._electric = device_data.get("electric_status")
+        self._electric = device_data.get("electric_status", {})
 
     def update_obd(self, obd_info):
         """Update OBD data from server."""

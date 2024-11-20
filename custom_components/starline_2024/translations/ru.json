@@ -84,6 +84,9 @@
             }
         },
         "sensor": {
+            "ev_battery_percents": {
+                "name": "Заряд ВВБ"
+            },
             "balance": {
                 "name": "Баланс"
             },
