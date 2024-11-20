@@ -31,6 +31,9 @@
       }
     },
     "sensor": {
+      "ev_battery_percents": {
+        "default": "mdi:car-battery"
+      },
       "balance": {
         "default": "mdi:cash-multiple"
       },
