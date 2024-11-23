@@ -125,7 +125,7 @@ class StarlineSensor(StarlineEntity, SensorEntity):
     @property
     def icon(self):
         """Icon to use in the frontend, if any."""
-        if self._key == "battery":
+        if self._key == "ev_battery_percents":
             return icon_for_battery_level(
                 battery_level=self._device.battery_level_percent,
                 charging=self._device.car_state.get("ign", False),
