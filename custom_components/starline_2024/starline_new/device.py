@@ -55,10 +55,15 @@ class StarlineDevice:
             "ctemp", device_data.get("common").get("mayak_temp")
         )
         self._etemp = device_data.get("common").get("etemp")
-        self._fuel = {
+        self._fuel_liters = {
             "val": device_data.get("obd").get("fuel_litres"),
-            "ts": device_data.get("activity_ts"),
+            "ts": device_data.get("obd").get("fuel_ts"),
             "type": "liters",
+        }
+        self._fuel_percent = {
+            "val": device_data.get("obd").get("fuel_percent"),
+            "ts": device_data.get("obd").get("fuel_ts"),
+            "type": "percent",
         }
         self._mileage = {
             "val": device_data.get("obd").get("mileage"),
@@ -188,7 +193,10 @@ class StarlineDevice:
     @property
     def fuel(self):
         """Device fuel count."""
-        return self._fuel
+        if self._fuel_liters:
+            return self._fuel_liters
+        else:
+            return self._fuel_percent
 
     @property
     def mileage(self):
