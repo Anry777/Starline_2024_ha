@@ -63,7 +63,7 @@ class StarlineDevice:
         self._fuel_percent = {
             "val": device_data.get("obd").get("fuel_percent"),
             "ts": device_data.get("obd").get("fuel_ts"),
-            "type": "percent",
+            "type": "percents",
         }
         self._mileage = {
             "val": device_data.get("obd").get("mileage"),
@@ -193,10 +193,10 @@ class StarlineDevice:
     @property
     def fuel(self):
         """Device fuel count."""
-        if self._fuel_liters:
-            return self._fuel_liters
-        else:
+        if self._fuel_liters is None:
             return self._fuel_percent
+        else:
+            return self._fuel_liters
 
     @property
     def mileage(self):
