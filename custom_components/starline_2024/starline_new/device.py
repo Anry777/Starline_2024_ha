@@ -193,10 +193,10 @@ class StarlineDevice:
     @property
     def fuel(self):
         """Device fuel count."""
-        if self._fuel_liters is None:
-            return self._fuel_percent
-        else:
+        if self._fuel_liters > 0:
             return self._fuel_liters
+        if self._fuel_percent > 0:
+            return self._fuel_percent
 
     @property
     def mileage(self):
